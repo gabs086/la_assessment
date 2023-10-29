@@ -17,3 +17,6 @@ CREATE TABLE IF NOT EXIST duties (
 );
 ```
 5. Double check also in pgAdmin4 if the table is created successfully. You may follow this [guide](https://www.tutorialsteacher.com/postgresql/create-database)
+
+
+## Server setup
