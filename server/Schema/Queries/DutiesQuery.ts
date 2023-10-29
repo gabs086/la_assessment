@@ -1,7 +1,7 @@
 import { GraphQLList } from 'graphql';
 
-import { DutiesType } from 'server/Schema/TypeDef/DutiesType';
-import connection from 'server/Db';
+import { DutiesType } from '../TypeDef/DutiesType';
+import connection from '../../Db';
 
 export const GET_ALL_DUTIES = {
   type: new GraphQLList(DutiesType),

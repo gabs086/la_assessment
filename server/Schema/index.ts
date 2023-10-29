@@ -1,7 +1,7 @@
 import { GraphQLObjectType, GraphQLSchema } from 'graphql';
 
-import { GET_ALL_DUTIES } from 'server/Schema/Queries/DutiesQuery';
-import { mutationFields } from 'server/Schema/Mutations';
+import { GET_ALL_DUTIES } from './Queries/DutiesQuery';
+import { mutationFields } from './Mutations';
 
 const Queries = new GraphQLObjectType({
   name: 'RootQuery',

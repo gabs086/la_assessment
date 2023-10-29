@@ -1,1 +1,0 @@
-{"version":3,"file":"DutiesQuery.js","sourceRoot":"","sources":["../../../../server/Schema/Queries/DutiesQuery.ts"],"names":[],"mappings":";;;;;;AAEA,iEAA8D;AAC9D,mDAAmC;AAEtB,QAAA,cAAc,GAAG;IAC5B,IAAI,EAAE,uBAAU;IAChB,OAAO;QACL,MAAM,IAAI,GAAG,YAAU,CAAC,KAAK,CAAC,4CAA4C,CAAC,CAAC;QAC5E,OAAO,IAAI,CAAC;IACd,CAAC;CACF,CAAC"}

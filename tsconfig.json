@@ -8,16 +8,11 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": ".",
     "rootDir": ".",
-    "paths": {
-      "server": ["server/*"],
-      "db": ["server/Db/*"],
-      "schema": ["server/Schema/*"],
-    }
+    "baseUrl": "./",
   },
   "include": ["server/**/*", ".env", "**/*.ts"],
-  "exclude": ["node_modules", "dist", "coverage"],
+  "exclude": ["node_modules", "dist", "coverage", "client"],
   "ts-node": {
     // Do not forget to `npm i -D tsconfig-paths`
     "require": ["tsconfig-paths/register"]

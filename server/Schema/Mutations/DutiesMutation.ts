@@ -1,12 +1,12 @@
 import { GraphQLInt, GraphQLString } from 'graphql';
 import dayjs from 'dayjs';
 
-import connection from 'server/Db';
-import { MessageType } from 'server/Schema/TypeDef';
-import { successResponse } from 'server/Helpers/handlers';
-import { CreateNewDuty, UpdateDuty, DeleteDuty } from 'server/Helpers/types';
-import { CONTANTS } from 'server/Helpers/contants';
-import loggerHelper from 'server/Helpers/logger';
+import connection from '../../Db';
+import { MessageType } from '../TypeDef';
+import { successResponse } from '../../Helpers/handlers';
+import { CreateNewDuty, UpdateDuty, DeleteDuty } from '../../Helpers/types';
+import { CONTANTS } from '../../Helpers/contants';
+import loggerHelper from '../../Helpers/logger';
 
 const CREATE_NEW_DUTY = {
   type: MessageType,
