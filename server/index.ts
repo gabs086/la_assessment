@@ -37,4 +37,6 @@ app.use(
   })
 );
 
-app.listen(PORT, () => console.log(`App running in port ${PORT}`));
+const serverConnection = app.listen(PORT, () => console.log(`App running in port ${PORT}`));
+
+export { app, serverConnection };

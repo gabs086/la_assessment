@@ -11,7 +11,7 @@
     "rootDir": ".",
     "baseUrl": "./",
   },
-  "include": ["server/**/*", ".env", "**/*.ts"],
+  "include": [".env", "**/*.ts"],
   "exclude": ["node_modules", "dist", "coverage", "client"],
   "ts-node": {
     // Do not forget to `npm i -D tsconfig-paths`
