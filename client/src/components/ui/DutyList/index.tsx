@@ -1,27 +1,20 @@
-import { Space, Table, notification, Button, Popconfirm } from 'antd';
-import { PlusOutlined, EditOutlined, DeleteOutlined } from '@ant-design/icons';
-import type { ColumnsType } from 'antd/es/table';
+import { useEffect, useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 
-import { GET_ALL_DUTIES } from '../../graphql/Queries';
-import { DELETE_DUTY } from '../../graphql/Mutations';
+import { Space, Table, notification, Button, Popconfirm, Tooltip } from 'antd';
+import { EditOutlined, DeleteOutlined } from '@ant-design/icons';
+import type { ColumnsType } from 'antd/es/table';
 
-interface DataType {
-  id: number;
-  name: string;
-}
+import { GET_ALL_DUTIES } from '@/graphql/Queries';
+import { DELETE_DUTY } from '@/graphql/Mutations';
 
-type Props = {
-  setEditValues: Dispatch<SetStateAction<{}>>;
-  setOpenEditModal: () => void;
-};
+import { DataType, Props } from './types';
 
 const DutyList = ({ setEditValues, setOpenEditModal }: Props) => {
   const duties = useQuery(GET_ALL_DUTIES);
   const [id, setId] = useState<number>(0);
 
-  const [deleteDuty, { data, loading, error }] = useMutation(DELETE_DUTY, {
+  const [deleteDuty, deleteDutyMutations] = useMutation(DELETE_DUTY, {
     refetchQueries: [GET_ALL_DUTIES, 'getAllDuties'],
   });
 
@@ -48,7 +41,7 @@ const DutyList = ({ setEditValues, setOpenEditModal }: Props) => {
     {
       title: 'Duty Name',
       dataIndex: 'name',
-      key: 'name',
+      key: 'id',
       sorter: (a, b) => a.name.length - b.name.length,
     },
     {
@@ -56,16 +49,20 @@ const DutyList = ({ setEditValues, setOpenEditModal }: Props) => {
       key: 'action',
       render: (_, record) => (
         <Space size='middle'>
-          <Button
-            shape='round'
-            onClick={() => {
-              setEditValues(record);
-              setOpenEditModal();
-            }}
-            icon={<EditOutlined />}
-          />
+          <Tooltip title='Edit' color='blue'>
+            <Button
+              shape='round'
+              onClick={() => {
+                setEditValues(record);
+                setOpenEditModal();
+              }}
+              icon={<EditOutlined />}
+            />
+          </Tooltip>
           <Popconfirm title='Delete the task' description='Are you sure to delete this task?' onConfirm={confirmDelete} onCancel={cancelDelete} okText='Yes' cancelText='No'>
-            <Button shape='round' onClick={() => setId(record?.id)} icon={<DeleteOutlined />} danger />
+            <Tooltip title='Delete' color='red'>
+              <Button shape='round' onClick={() => setId(record?.id)} icon={<DeleteOutlined />} danger />
+            </Tooltip>
           </Popconfirm>
         </Space>
       ),
@@ -83,16 +80,24 @@ const DutyList = ({ setEditValues, setOpenEditModal }: Props) => {
   }, [duties?.error]);
 
   useEffect(() => {
-    if (data?.deleteDuty?.success) {
+    if (deleteDutyMutations?.data?.deleteDuty?.success) {
       notification.info({
-        message: `Notification`,
-        description: data?.deleteDuty?.message,
+        message: `Info`,
+        description: deleteDutyMutations?.data?.deleteDuty?.message,
         placement: 'bottomRight',
       });
     }
-  }, [data]);
 
-  return <Table columns={columns()} loading={duties?.loading} dataSource={duties?.data?.getAllDuties || []} />;
+    if (deleteDutyMutations?.error) {
+      notification.error({
+        message: `Notification`,
+        description: 'Something went wrong. Please try again later. Thank you',
+        placement: 'bottomRight',
+      });
+    }
+  }, [deleteDutyMutations?.data, deleteDutyMutations?.error]);
+
+  return <Table columns={columns()} loading={duties?.loading} rowKey='id' dataSource={duties?.data?.getAllDuties || []} />;
 };
 
 export default DutyList;
