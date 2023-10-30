@@ -8,12 +8,12 @@ const logger = winston.createLogger({
   transports: [
     new winston.transports.Console(),
     new winston.transports.DailyRotateFile({
-      filename: 'server/logs/filelog-%DATE%-info.log',
+      filename: 'logs/filelog-%DATE%-info.log',
       datePattern: 'YYYY-MM-DD',
       level: 'info',
     }),
     new winston.transports.DailyRotateFile({
-      filename: 'server/logs/filelog-%DATE%-error.log',
+      filename: 'logs/filelog-%DATE%-error.log',
       datePattern: 'YYYY-MM-DD',
       level: 'error',
     }),
