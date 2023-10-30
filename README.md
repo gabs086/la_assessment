@@ -46,7 +46,7 @@ Input the credentials you've created for PostgreSQL connection inside the .env f
 
 
 2. Open terminal and type ```yarn install```.
-3. Once the command script runs, it will trigger the unit testing, compiling of ts files, and running the server application. NOTE: It may take a while.
+3. Once the command script runs, it will install project dependencies and packages, trigger the unit testing, compiling of TS files, and running the server application. NOTE: It may take a while.
 4. Once this message appears in the command line. It means the server is now running properly
 ```
 process.env: production
@@ -57,7 +57,7 @@ App running in port 5000
 
 1. Go inside the root of the **client** folder.
 2. Open terminal and type ```yarn install```.
-3. Once the command script runs, it will trigger the unit testing, building of the react application, and serving the build application. NOTE: It may take a while.
+3. Once the command script runs, it will install project dependencies and packages, trigger the unit testing, building of the react application, and serving the build application. NOTE: It may take a while.
 4. Once done. Open ```http://localhost:3000``` in the browser and the react app will appear.
 
 ## Development setup
