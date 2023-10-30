@@ -33,6 +33,18 @@ CREATE TABLE IF NOT EXIST duties (
 ## Server setup
 
 1. Go inside the root of the **server** folder.
+2. IMPORTANT: Create a **.env** file inside the server folder with this format
+```.env
+DB_HOST= <The PostgreSQL hostname you've created>
+DB_NAME= <The PostgreSQL database name you've created>
+DB_USERNAME= <The username you've used in creating your PostgreSQL connection>
+DB_PASSWORD= <The password you've used in creating your PostgreSQL connection>
+CLIENT_BASE_URL= http://localhost:3000
+NODE_ENV = production
+```
+Input the credentials you've created for PostgreSQL connection inside the .env file. Set the ```NODE_ENV``` to ```production``` so the server will know that it will run in production mode.
+
+
 2. Open terminal and type ```yarn install```.
 3. Once the command script runs, it will trigger the unit testing, compiling of ts files, and running the server application. NOTE: It may take a while.
 4. Once this message appears in the command line. It means the server is now running properly
