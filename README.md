@@ -9,6 +9,10 @@ Packages used:
 
 ![yarn version](https://img.shields.io/badge/PostgreSQL-v15.4-red)
 
+I preferred yarn as the scripts declared in package.json of the projects are for yarn command
+
+Clone this repo and follow the steps to setup the application.
+
 ## Database Setup
 1. Download PostgreSQL through this [link](https://www.postgresql.org/download/). Choose the installer that your operating system supports. For this project, I've downloaded version 15.4 but any will do. You may also follow this [guide](https://www.tutorialsteacher.com/postgresql/install-postgresql)
 2. AFter downloading, create your connection through SQL Shell or pgAdmin 4. (Much preferred through SQL shell)
@@ -27,3 +31,23 @@ CREATE TABLE IF NOT EXIST duties (
 
 
 ## Server setup
+
+1. Go inside the root of the **server** folder.
+2. Open terminal and type ```yarn install```.
+3. Once the command script runs, it will trigger the unit testing, compiling of ts files, and running the server application. NOTE: It may take a while.
+4. Once this message appears in the command line. It means the server is now running properly
+```
+process.env: dev
+App running in port 5000
+```
+
+## Client setup
+
+1. Go inside the root of the **client** folder.
+2. Open terminal and type ```yarn install```.
+3. Once the command script runs, it will trigger the unit testing, building of the react application, and serving the build application. NOTE: It may take a while.
+4. Once done. Open ```http://localhost:3000``` in the browser and the react app will appear.
+
+## Development setup
+- For server development. Go inside the **server** folder, run to the terminal ```yarn install & yarn run dev``` to start development server
+- For client development. Go inside the **client** folder and run to the terminal ```yarn install &  yarn run start``` and open ```http://localhost:3000``` in the browser to start the reactjs development
