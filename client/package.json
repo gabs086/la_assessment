@@ -8,7 +8,6 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
@@ -25,9 +24,9 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "jest --coverage --coverageDirectory=. --watchAll=false --runInBand --detectOpenHandles --forceExit --debug --config=jest.config.js --updateSnapshot",
     "eject": "craco eject",
-    "postinstall": "yarn run build & npx serve build"
+    "postinstall": "yarn run test & yarn run build & npx serve build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +47,15 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/preset-env": "^7.23.2",
+    "@testing-library/react-hooks": "^8.0.1",
+    "@types/jest": "^29.5.6",
+    "@types/react-test-renderer": "^18.0.5",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "react-test-renderer": "^18.2.0",
+    "ts-jest": "^29.1.1"
   }
 }
