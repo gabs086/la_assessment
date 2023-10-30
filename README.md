@@ -9,7 +9,7 @@ Packages used:
 
 ![yarn version](https://img.shields.io/badge/PostgreSQL-v15.4-red)
 
-I preferred yarn as the scripts declared in package.json of the projects are for yarn command
+I preferred yarn as the scripts declared in package.json of the projects are yarn command
 
 Clone this repo and follow the steps to setup the application.
 
