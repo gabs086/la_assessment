@@ -1,6 +1,13 @@
 # Leighton Asia Technical Assessment
 by: Gabriel Agoncillo
 
+Packages used:
+
+![npm version](https://img.shields.io/badge/nodejs-v16.13.2-green)
+
+![yarn version](https://img.shields.io/badge/yarn-v1.22.19-blue)
+
+![yarn version](https://img.shields.io/badge/PostgreSQL-v15.4-red)
 
 ## Database Setup
 1. Download PostgreSQL through this [link](https://www.postgresql.org/download/). Choose the installer that your operating system supports. For this project, I've downloaded version 15.4 but any will do. You may also follow this [guide](https://www.tutorialsteacher.com/postgresql/install-postgresql)
