@@ -49,7 +49,7 @@ Input the credentials you've created for PostgreSQL connection inside the .env f
 3. Once the command script runs, it will trigger the unit testing, compiling of ts files, and running the server application. NOTE: It may take a while.
 4. Once this message appears in the command line. It means the server is now running properly
 ```
-process.env: dev
+process.env: production
 App running in port 5000
 ```
 
