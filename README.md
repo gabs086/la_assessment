@@ -1,4 +1,4 @@
-# Leighton Asia Technical Assessment
+# Technical Assessment
 by: Gabriel Agoncillo
 
 Packages used:
