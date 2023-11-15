@@ -1,9 +1,34 @@
 import renderer from 'react-test-renderer';
+import { renderHook } from '@testing-library/react-hooks';
 import { UseBooleanOutput } from '@/hooks/useModal';
 import AddDutyModal from '..';
 
 jest.mock('../../../../graphql');
-jest.mock('antd');
+jest.mock('antd', () => {
+  const antd = jest.requireActual('antd');
+  const { Form } = antd;
+
+  const { result } = renderHook(() => Form.useForm());
+
+  return {
+    ...antd,
+    notification: {
+      success: jest.fn(),
+      error: jest.fn(),
+    },
+    Modal: jest.fn(),
+    Form: {
+      ...Form,
+      useForm: () => [
+        {
+          ...result.current[0],
+          scrollToField: jest.fn(),
+          setFieldValue: jest.fn(),
+        },
+      ],
+    },
+  };
+});
 jest.mock('@apollo/client', () => ({
   gql: jest.fn(),
   useMutation: jest.fn().mockReturnValue([

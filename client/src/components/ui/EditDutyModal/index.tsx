@@ -13,6 +13,9 @@ export default function EditDutyModal(props: Props) {
 
   const [updateDuty, updateNewDutyMutations] = useMutation(UPDATE_NEW_DUTY, {
     refetchQueries: [GET_ALL_DUTIES, 'getAllDuties'],
+    onCompleted: (data: any) => {
+      console.log('data:', data);
+    },
   });
 
   const onFinish = (values: FieldType) => {
@@ -53,7 +56,7 @@ export default function EditDutyModal(props: Props) {
 
   return (
     <>
-      <Modal title='Modal 1000px width' footer={[]} centered open={editModal.value} onCancel={() => editModal.setFalse()}>
+      <Modal title='Modal 1000px width' footer={[]} centered open={editModal.value} forceRender onCancel={() => editModal.setFalse()}>
         <Form
           form={form}
           name='editDuty'
@@ -71,8 +74,8 @@ export default function EditDutyModal(props: Props) {
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-            <Button type='primary' htmlType='submit'>
-              Submit
+            <Button type='primary' disabled={updateNewDutyMutations?.loading} onClick={form.submit}>
+              {updateNewDutyMutations.loading ? 'Loading...' : 'Submit'}
             </Button>
           </Form.Item>
         </Form>
